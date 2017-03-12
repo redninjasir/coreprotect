@@ -13,7 +13,6 @@ public class Barrier extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
-    {
-        // Add your action code here.
+    { 
     }    
 }

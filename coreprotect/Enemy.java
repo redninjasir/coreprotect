@@ -15,8 +15,10 @@ public class Enemy extends Actor
      */
     public void act() 
     {
-        move(3);
         hunt();
+        move(1);
+        if(!getIntersectingObjects(Enemy.class).isEmpty()) move(-1);
+        kill();
     }    
     public void hunt(){
         if(point == null){
@@ -29,6 +31,11 @@ public class Enemy extends Actor
             int yDiff = point.getY() - getY();
             double angle = Math.toDegrees(Math.atan2(yDiff, xDiff));
             setRotation((int)Math.round(angle));
+        }
+    }
+    public void kill(){
+        if(!getIntersectingObjects(Core.class).isEmpty()){
+            
         }
     }
 }

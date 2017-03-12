@@ -20,9 +20,12 @@ public class Field extends World
         addObject(new Main(), 400,300);
         for(int i = 0;i<5;i++){
             int a = Greenfoot.getRandomNumber(getWidth());
-            int b = Greenfoot.getRandomNumber(getHeight());
             addObject(new Enemy(), getWidth()-a,0);
             Main.health = 3;
+        }
+        for(int j = 0;j<10;j++){
+            int b = Greenfoot.getRandomNumber(getHeight());
+            addObject(new Enemy(), 0, getHeight()-b);
         }
     }
     public void act(){

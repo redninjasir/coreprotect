@@ -22,9 +22,16 @@ public class Main extends Actor
     GreenfootImage image7 = new GreenfootImage("main7.png");
     public static int speed = 5;
     public static int health = 3;
+    public static final int barrierReload = 500;
+    private int barrierDelay;
+    private int count = 0;
+    public Main(){
+        barrierDelay = 100;
+    }
     public void act() 
     {
         move();
+        barrierDelay++;
     }
     public void move(){
         if(Greenfoot.isKeyDown("up")){
@@ -55,15 +62,25 @@ public class Main extends Actor
         if(Greenfoot.isKeyDown("left")&&Greenfoot.isKeyDown("up")){
             setImage(image7);
         }
-        push(getX(),getY());
-    }
-    public void push(int x, int y){
-        if(Greenfoot.isKeyDown("z")){
-            Actor actor = getOneIntersectingObject(Barrier.class);
-            if(actor!=null){
-                actor.setLocation(actor.getX()+(x-getX()),actor.getY()+(y-getY()));
+        if(count == 1){
+            if(Greenfoot.isKeyDown("z")){
+            push();
             }
-        }  
-        super.setLocation(x,y);
+        }
+        if(Greenfoot.isKeyDown("x")){
+            if(count == 0){
+                if(barrierDelay>=barrierReload){
+                    Barrier barrier = new Barrier();
+                    getWorld().addObject(barrier, this.getX(), this.getY());
+                    barrier.setRotation(getRotation());
+                    barrierDelay = 0;
+                    count++;
+                }
+            }
+        }
+    }
+    public void push(){
+        Barrier b = getWorld().getObjects(Barrier.class).get(0);
+        b.setLocation(this.getX()-30, this.getY()-30);
     }
 }
