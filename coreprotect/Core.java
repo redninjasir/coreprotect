@@ -13,7 +13,7 @@ public class Core extends Actor
     {
         follow();
         move(6);
-        if(!getIntersectingObjects(Main.class).isEmpty()) move(-2);
+        //if(!getIntersectingObjects(Main.class).isEmpty()) move(-2);
     } 
     public void follow(){
         if(player == null){

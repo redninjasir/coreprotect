@@ -20,16 +20,13 @@ public class Main extends Actor
     GreenfootImage image5 = new GreenfootImage("main5.png");
     GreenfootImage image6 = new GreenfootImage("main6.png");
     GreenfootImage image7 = new GreenfootImage("main7.png");
-    public static int speed = 6;
+    public static int speed = 5;
     public static int health = 3;
     public static final int barrierReload = 100;
-    public static int barrierDelay;
-    public static int count = 0;
+    private int barrierDelay;
+    private int count = 0;
     public Main(){
         barrierDelay = 100;
-    }
-    public Main(int c){
-        count = 0;
     }
     public void act() 
     {
@@ -73,12 +70,12 @@ public class Main extends Actor
         if(Greenfoot.isKeyDown("x")){
             if(count == 0){
                 if(barrierDelay>=barrierReload){
-                    Barrier barrier = new Barrier(3);
+                    Barrier barrier = new Barrier();
                     getWorld().addObject(barrier, this.getX(), this.getY());
                     barrier.setRotation(getRotation());
                     barrierDelay = 0;
                     count++;
-                    barrier.hp = 3;
+                    
                 }
             }
         }

@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Enemy extends Actor
 {   
     public Core point;
+    public static final int amount = 1;
+    public static int move;
     /**
      * Act - do whatever the enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,9 +18,8 @@ public class Enemy extends Actor
     public void act() 
     {
         hunt();
-        move(1);
-        if(!getIntersectingObjects(Enemy.class).isEmpty()) move(-1);
-        kill();
+        move(move);
+        touch();
     }    
     public void hunt(){
         if(point == null){
@@ -33,9 +34,10 @@ public class Enemy extends Actor
             setRotation((int)Math.round(angle));
         }
     }
-    public void kill(){
-        if(!getIntersectingObjects(Core.class).isEmpty()){
-            
+    public void touch(){
+        if(isTouching(Core.class)){
+            Actor c = getOneIntersectingObject(Core.class);
+            Greenfoot.setWorld(new Scoreboard());
         }
     }
 }
