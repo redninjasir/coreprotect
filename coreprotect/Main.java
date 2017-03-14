@@ -79,6 +79,7 @@ public class Main extends Actor
                     barrierDelay = 0;
                     count++;
                     barrier.hp = 3;
+                    Greenfoot.playSound("Tempest_Double.wav");
                 }
             }
         }

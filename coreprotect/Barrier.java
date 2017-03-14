@@ -23,6 +23,7 @@ public class Barrier extends Actor
       if(hp<=0){
           getWorld().removeObject(this);
           Main.count = 0;
+          Greenfoot.playSound("Land_Mines_explode1.wav");
       }
     }
     public void touch(){
@@ -31,6 +32,7 @@ public class Barrier extends Actor
             getWorld().removeObject(e);
             hp--;
             score++;
+            Greenfoot.playSound("Paralyzing_Cask_target1.wav");
         }
     }
 }

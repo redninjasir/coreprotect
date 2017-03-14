@@ -20,7 +20,8 @@ public class Field extends World
         super(600, 600,1);
         addObject(new Core(), getWidth()/2, getHeight()/2);
         addObject(new Main(), 400,300);
-        addObject(new restart(), 500,100);
+        addObject(new restart2(), 475,50);
+        addObject(new home(), 530, 50);
         Main.count = 0;
         timeCount = 180;
         timer = 7200;
@@ -55,6 +56,7 @@ public class Field extends World
                 int b = Greenfoot.getRandomNumber(getHeight());
                 addObject(new Enemy(), getWidth()-b, 600);
            }
+                   Greenfoot.playSound("Press_the_Attack.wav");
         }
     }
 }

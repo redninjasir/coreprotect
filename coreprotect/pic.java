@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class logo here.
+ * Write a description of class pic here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Logo extends Actor
+public class pic extends Actor
 {
     /**
-     * Act - do whatever the logo wants to do. This method is called whenever
+     * Act - do whatever the pic wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
