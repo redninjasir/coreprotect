@@ -23,7 +23,6 @@ public class Scoreboard extends World
     }
     public void act(){
         showText("You survived for "+Field.timeCount+" seconds", 300, 100);
-        scoreCount = (Field.timeCount/5);
-        showText("Your score is "+scoreCount, 300, 200);
+        showText("Your destroy "+Barrier.score+" triangle", 300, 200);
     }
 }
