@@ -67,7 +67,7 @@ public class Main extends Actor
         }
         if(count == 1){
             if(Greenfoot.isKeyDown("z")){
-            push();
+                push();
             }
         }
         if(Greenfoot.isKeyDown("x")){
