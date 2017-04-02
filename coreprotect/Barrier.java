@@ -28,11 +28,15 @@ public class Barrier extends Actor
     }
     public void touch(){
         if(isTouching(Enemy.class)){
-            Actor e = getOneIntersectingObject(Enemy.class);
-            getWorld().removeObject(e);
-            hp--;
-            score++;
-            Greenfoot.playSound("Paralyzing_Cask_target1.wav");
+           Actor e = getOneIntersectingObject(Enemy.class);
+           Item item = new Item();
+           if(Greenfoot.getRandomNumber(10) == 3){
+               getWorld().addObject(item, e.getX(), e.getY());
+           }
+           getWorld().removeObject(e);
+           hp--;
+           score++;
+           Greenfoot.playSound("Paralyzing_Cask_target1.wav");
         }
     }
 }

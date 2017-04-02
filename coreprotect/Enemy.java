@@ -11,10 +11,6 @@ public class Enemy extends Actor
     public Core point;
     public static final int amount = 1;
     public static int move;
-    /**
-     * Act - do whatever the enemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
     {
         hunt();
