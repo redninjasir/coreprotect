@@ -25,6 +25,7 @@ public class Field extends World
         Main.count = 0;
         timeCount = 180;
         timer = 7200;
+
         Barrier.score = 0;
     }
     public void act(){
@@ -36,6 +37,7 @@ public class Field extends World
             }
         }
         addEnemy();
+        addItem();
         timeCount = 120-(timer/60);
     }
     public void addEnemy(){
@@ -59,5 +61,9 @@ public class Field extends World
                    Greenfoot.playSound("Press_the_Attack.wav");
         }
     }
+   public void addItem(){
+        if(Barrier.score%5 == 1 && Barrier.score != 0 ){
+            addObject(new Mine(), Greenfoot.getRandomNumber(getWidth()),Greenfoot.getRandomNumber(getHeight()));
+        }
+    }
 }
-
