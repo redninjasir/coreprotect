@@ -19,7 +19,7 @@ public class medium extends Lmenu
     public void check(){
         if(Greenfoot.mouseClicked(this)){
             Greenfoot.setWorld(new Field());
-            Enemy.move = 3;
+            Enemy.move = 2;
         }
     }
 }

@@ -67,7 +67,7 @@ public class Main extends Actor
         }
         if(count == 1){
             if(Greenfoot.isKeyDown("z")){
-            push();
+                push();
             }
         }
         if(Greenfoot.isKeyDown("x")){
@@ -88,4 +88,27 @@ public class Main extends Actor
         Barrier b = getWorld().getObjects(Barrier.class).get(0);
         b.setLocation(this.getX(), this.getY());
     }
+    @Override
+    public void setLocation(int x, int y)
+    {
+        if (x >= getWorld().getWidth())
+        {
+            x = 0;
+        }
+        if (x < 0)
+        {
+            x = getWorld().getWidth() - 1;
+        }
+        if (y >= getWorld().getHeight())
+        {
+            y = 0;
+        }
+        if (y < 0)
+        {
+            y = getWorld().getHeight() - 1;
+        }
+        
+        super.setLocation(x, y);
+    }
 }
+
