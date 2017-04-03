@@ -41,24 +41,25 @@ public class Field extends World
         timeCount = 120-(timer/60);
         Greenfoot.delay(2-timeCount);
     }
-    public void addEnemy(){        
-           for(int i = 0;i<5;i++){
-                int a = Greenfoot.getRandomNumber(getWidth());
-                addObject(new Enemy(), getWidth()-a,0);
-           }
-           for(int j = 0;j<5;j++){
-                int b = Greenfoot.getRandomNumber(getHeight());
-                addObject(new Enemy(), 0, getHeight()-b);
-           }
-           for(int j = 0;j<5;j++){
-                int b = Greenfoot.getRandomNumber(getHeight());
-                addObject(new Enemy(), 600, getHeight()-b);
-           }
-           for(int j = 0;j<5;j++){
-                int b = Greenfoot.getRandomNumber(getHeight());
-                addObject(new Enemy(), getWidth()-b, 600);
-           }
-           Greenfoot.playSound("Press_the_Attack.wav");        
+    public void addEnemy(){    
+        //add 5 enemy from each side of the world 
+        for(int i = 0;i<5;i++){
+             int a = Greenfoot.getRandomNumber(getWidth());
+             addObject(new Enemy(), getWidth()-a,0);
+        }
+        for(int j = 0;j<5;j++){
+             int b = Greenfoot.getRandomNumber(getHeight());
+             addObject(new Enemy(), 0, getHeight()-b);
+        }
+        for(int j = 0;j<5;j++){
+             int b = Greenfoot.getRandomNumber(getHeight());
+             addObject(new Enemy(), 600, getHeight()-b);
+        }
+        for(int j = 0;j<5;j++){
+             int b = Greenfoot.getRandomNumber(getHeight());
+             addObject(new Enemy(), getWidth()-b, 600);
+        }
+        Greenfoot.playSound("Press_the_Attack.wav");        
     }
 }
 

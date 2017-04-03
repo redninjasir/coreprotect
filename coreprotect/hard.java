@@ -17,6 +17,7 @@ public class hard extends Lmenu
         check();
     }    
     public void check(){
+        //when click set enemy move speed and move to field world
         if(Greenfoot.mouseClicked(this)){
             Greenfoot.setWorld(new Field());
             Enemy.move = 4;

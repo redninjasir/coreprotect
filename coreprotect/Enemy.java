@@ -18,6 +18,7 @@ public class Enemy extends Actor
         touch();
     }    
     public void hunt(){
+        //if the core is still exist turn to core if not find the core
         if(point == null){
             if(!getWorld().getObjects(Core.class).isEmpty()){
                 point = (Core) getWorld().getObjects(Core.class).get(0);
@@ -31,6 +32,7 @@ public class Enemy extends Actor
         }
     }
     public void touch(){
+        //if enemy touch the core move to scoreboard
         if(isTouching(Core.class)){
             Actor c = getOneIntersectingObject(Core.class);
             Greenfoot.setWorld(new Scoreboard());

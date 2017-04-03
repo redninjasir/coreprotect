@@ -45,6 +45,7 @@ public class Main extends Actor
         }
     }
     public void move(){
+        //press specific key to move
         if(Greenfoot.isKeyDown("up")){
             setImage(image);
             setLocation(getX(), getY() - speed);
@@ -73,11 +74,13 @@ public class Main extends Actor
         if(Greenfoot.isKeyDown("left")&&Greenfoot.isKeyDown("up")){
             setImage(image7);
         }
+        //drag barrier
         if(count == 1){
             if(Greenfoot.isKeyDown("z")){
                 push();
             }
         }
+        //create barrier
         if(Greenfoot.isKeyDown("x")){
             if(count == 0){
                 if(barrierDelay>=barrierReload){
@@ -93,15 +96,18 @@ public class Main extends Actor
         }
     }
     public void push(){
+        //move barrier along with player
         Barrier b = getWorld().getObjects(Barrier.class).get(0);
         b.setLocation(this.getX(), this.getY());
     }
     public void touch(){
+        //if touch item, remove item and decrease barrier reload time, increase upgrade point
         if(isTouching(Item.class)){
             Actor i = getOneIntersectingObject(Item.class);
             barrierReload -= 5;
-            getWorld().removeObject(i);
             upgrade++;
+            Greenfoot.playSound("Puck_projectile_impact.wav");
+            getWorld().removeObject(i);
         }
     }
 }

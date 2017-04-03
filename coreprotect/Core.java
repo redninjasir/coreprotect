@@ -13,9 +13,9 @@ public class Core extends Actor
     {
         follow();
         move(6);
-        //if(!getIntersectingObjects(Main.class).isEmpty()) move(-2);
     } 
     public void follow(){
+        //if player is still exist turn to player if not find the player
         if(player == null){
             if(!getWorld().getObjects(Main.class).isEmpty()){
                 player = (Main) getWorld().getObjects(Main.class).get(0);

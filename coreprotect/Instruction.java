@@ -25,6 +25,7 @@ public class Instruction extends World
         click();
     }
     public void click(){
+        //when click or press space will move to new World
         if(Greenfoot.isKeyDown("space")||Greenfoot.mouseClicked(this)){
             Greenfoot.setWorld(new menu());
         }

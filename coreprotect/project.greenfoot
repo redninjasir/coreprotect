@@ -1,9 +1,9 @@
 #Greenfoot properties
-#Sun Apr 02 23:37:54 ICT 2017
+#Mon Apr 03 16:00:44 ICT 2017
 target16.name=Enemy
 dependency35.to=restart2
 editor.swing.0.y=0
-editor.swing.0.x=952
+editor.swing.0.x=0
 target2.name=start
 target9.name=menu
 class.Barrier.image=barrier.png
@@ -304,7 +304,7 @@ class.home.superclass=greenfoot.Actor
 target20.x=10
 dependency34.type=UsesDependency
 dependency31.from=Field
-editor.swing.0.height=1088
+editor.swing.0.height=0
 target6.showInterface=false
 target15.showInterface=false
 dependency38.from=home
@@ -326,7 +326,7 @@ dependency47.from=Instruction
 readme.width=47
 target20.width=80
 mainWindow.height=994
-editor.swing.0.width=976
+editor.swing.0.width=0
 target5.showInterface=false
 target14.showInterface=false
 dependency34.to=Barrier
