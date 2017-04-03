@@ -21,12 +21,15 @@ public class Main extends Actor
     GreenfootImage image6 = new GreenfootImage("main6.png");
     GreenfootImage image7 = new GreenfootImage("main7.png");
     public static int speed = 6;
-    public static int health = 3;
-    public static final int barrierReload = 100;
+    public static int barrierReload = 100;
     public static int barrierDelay;
     public static int count = 0;
+    public static int bacount = 1;
+    public int upgrade = 0;
     public Main(){
         barrierDelay = 100;
+        upgrade = 0;
+        speed = 6;
     }
     public Main(int c){
         count = 0;
@@ -35,8 +38,14 @@ public class Main extends Actor
     {
         move();
         barrierDelay++;
+        touch();
+        if(upgrade%5 == 1){
+            speed++;
+            upgrade = 0;
+        }
     }
     public void move(){
+        //press specific key to move
         if(Greenfoot.isKeyDown("up")){
             setImage(image);
             setLocation(getX(), getY() - speed);
@@ -65,11 +74,13 @@ public class Main extends Actor
         if(Greenfoot.isKeyDown("left")&&Greenfoot.isKeyDown("up")){
             setImage(image7);
         }
+        //drag barrier
         if(count == 1){
             if(Greenfoot.isKeyDown("z")){
-            push();
+                push();
             }
         }
+        //create barrier
         if(Greenfoot.isKeyDown("x")){
             if(count == 0){
                 if(barrierDelay>=barrierReload){
@@ -77,7 +88,7 @@ public class Main extends Actor
                     getWorld().addObject(barrier, this.getX(), this.getY());
                     barrier.setRotation(getRotation());
                     barrierDelay = 0;
-                    count++;
+                    count++; 
                     barrier.hp = 3;
                     Greenfoot.playSound("Tempest_Double.wav");
                 }
@@ -85,7 +96,18 @@ public class Main extends Actor
         }
     }
     public void push(){
+        //move barrier along with player
         Barrier b = getWorld().getObjects(Barrier.class).get(0);
         b.setLocation(this.getX(), this.getY());
+    }
+    public void touch(){
+        //if touch item, remove item and decrease barrier reload time, increase upgrade point
+        if(isTouching(Item.class)){
+            Actor i = getOneIntersectingObject(Item.class);
+            barrierReload -= 5;
+            upgrade++;
+            Greenfoot.playSound("Puck_projectile_impact.wav");
+            getWorld().removeObject(i);
+        }
     }
 }

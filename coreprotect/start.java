@@ -17,12 +17,10 @@ public class start extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 200, 1); 
         addObject(new Logo(),300,100);
-        //showText("Press space to start", 300, 175);
     }
     public void act(){
        if(Greenfoot.isKeyDown("space")||Greenfoot.mouseClicked(this)){
            Greenfoot.setWorld(new Instruction());
-           //showText("",300,175);
        }else{ showText("Press space to start", 300, 175);}
     }
 }

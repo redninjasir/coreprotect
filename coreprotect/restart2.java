@@ -17,6 +17,7 @@ public class restart2 extends Actor
         click();
     }    
     public void click(){
+        //when click retry the level
         if(Greenfoot.mouseClicked(this)){
             Greenfoot.setWorld(new Field());
         }

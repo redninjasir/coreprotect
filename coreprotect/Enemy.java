@@ -11,10 +11,6 @@ public class Enemy extends Actor
     public Core point;
     public static final int amount = 1;
     public static int move;
-    /**
-     * Act - do whatever the enemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
     {
         hunt();
@@ -22,6 +18,7 @@ public class Enemy extends Actor
         touch();
     }    
     public void hunt(){
+        //if the core is still exist turn to core if not find the core
         if(point == null){
             if(!getWorld().getObjects(Core.class).isEmpty()){
                 point = (Core) getWorld().getObjects(Core.class).get(0);
@@ -35,6 +32,7 @@ public class Enemy extends Actor
         }
     }
     public void touch(){
+        //if enemy touch the core move to scoreboard
         if(isTouching(Core.class)){
             Actor c = getOneIntersectingObject(Core.class);
             Greenfoot.setWorld(new Scoreboard());

@@ -21,18 +21,23 @@ public class Barrier extends Actor
     { 
       touch();
       if(hp<=0){
-          getWorld().removeObject(this);
           Main.count = 0;
           Greenfoot.playSound("Land_Mines_explode1.wav");
+          getWorld().removeObject(this);
       }
     }
     public void touch(){
+        //if touch the enemy remove an enemy class then reduce barrier health and increase score
         if(isTouching(Enemy.class)){
-            Actor e = getOneIntersectingObject(Enemy.class);
-            getWorld().removeObject(e);
-            hp--;
-            score++;
-            Greenfoot.playSound("Paralyzing_Cask_target1.wav");
+           Actor e = getOneIntersectingObject(Enemy.class);
+           Item item = new Item();
+           if(Greenfoot.getRandomNumber(10) == 3){
+               getWorld().addObject(item, e.getX(), e.getY());
+           }
+           getWorld().removeObject(e);
+           hp--;
+           score++;
+           Greenfoot.playSound("Paralyzing_Cask_target1.wav");
         }
     }
 }

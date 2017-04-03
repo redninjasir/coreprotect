@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import javax.swing.*;
 /**
  * Write a description of class Scoreboard here.
  * 
@@ -9,6 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Scoreboard extends World
 {
     private int scoreCount;
+    public boolean test;
+    public int count;
+    public String amount;
     /**
      * Constructor for objects of class Scoreboard.
      * 
@@ -20,9 +23,10 @@ public class Scoreboard extends World
         addObject(new restart(), 200, 300);
         addObject(new home1(), 400,300);
         scoreCount = 0;
+        amount = JOptionPane.showInputDialog("Please enter your name");
     }
     public void act(){
         showText("You survived for "+Field.timeCount+" seconds", 300, 100);
-        showText("Your destroy "+Barrier.score+" triangle", 300, 200);
+        showText(amount+" destroy "+Barrier.score+" triangle", 300, 200);
     }
 }

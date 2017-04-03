@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.Scanner;
 /**
  * Write a description of class menu here.
  * 
@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class menu extends World
 {
-
+    public static String name;
     /**
      * Constructor for objects of class menu.
      * 

@@ -17,6 +17,7 @@ public class home extends Actor
         click();
     }    
     public void click(){
+        //when click return to start menu
         if(Greenfoot.mouseClicked(this)){
             Greenfoot.setWorld(new start());
         }
